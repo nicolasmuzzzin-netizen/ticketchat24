@@ -65,10 +65,11 @@ margin-top:28px;font-weight:900
 .actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:34px}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px;max-width:650px}
 .stat{
-padding:20px;border-radius:20px;
+padding:18px;border-radius:20px;
 background:rgba(2,6,23,.75);
 border:1px solid rgba(255,255,255,.10);
 text-align:center
+width:100%;
 }
 .stat b{font-size:28px}
 .stat small{display:block;color:#94a3b8;margin-top:5px}
@@ -178,8 +179,8 @@ font-weight:800;color:#f5d0fe
 }
 .pill.green{background:rgba(16,185,129,.14);border-color:rgba(16,185,129,.34);color:#bbf7d0}
 .event-body p{color:#cbd5e1;line-height:1.65;margin-top:18px;font-size:16px}
-.case-grid{display:grid;grid-template-columns:390px 1fr;gap:28px;margin-top:44px;align-items:start}
-.case-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+.case-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;margin-top:44px;align-items:start;}
+.case-stats{display:grid;grid-template-columns:1fr;gap:14px;margin-top:28px;}
 .check{display:flex;gap:14px;align-items:flex-start;color:#cbd5e1;font-size:18px;line-height:1.6;margin:18px 0}
 .check b{color:#f0abfc}
 .whatsapp-float{
