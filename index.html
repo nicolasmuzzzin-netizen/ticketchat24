@@ -537,6 +537,46 @@ td:first-child{font-weight:900;color:white}
 .money[style]{display:block!important}
 table{font-size:13px}
 th,td{padding:12px}
+  @media (max-width:768px){
+
+  .hero-grid,
+  .cards,
+  .features,
+  .plans,
+  .steps,
+  .events-grid,
+  .case-metrics{
+    grid-template-columns:1fr !important;
+  }
+
+  h1{
+    font-size:42px;
+  }
+
+  h2{
+    font-size:30px;
+  }
+.event-card{
+  min-height:auto;
+  overflow:hidden;
+}
+  .event-art{
+  width:100%;
+  height:auto !important;
+  aspect-ratio:1 / 1;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  }
+
+  .btn{
+    width:100%;
+  }
+
+  table{
+    display:block;
+    overflow-x:auto;
+  }
 }
 </style>
 
