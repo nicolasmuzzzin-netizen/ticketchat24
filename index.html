@@ -6,97 +6,229 @@
 <title>TicketChat24</title>
 
 <style>
-body{
-font-family:Arial, sans-serif;
-background:#0f0f0f;
-color:white;
+*{
 margin:0;
 padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+body{
+background:#080808;
+color:white;
+}
+
+.hero{
+padding:80px 20px;
 text-align:center;
+background:linear-gradient(180deg,#0d0d0d,#121212);
 }
 
-header{
-background:#111;
-padding:60px 20px;
+.hero h1{
+font-size:64px;
+color:#25D366;
+margin-bottom:20px;
 }
 
-h1{
-font-size:50px;
-margin:0;
-color:#00ff88;
-}
-
-h2{
+.hero p{
 font-size:24px;
-font-weight:normal;
-}
-
-section{
-padding:50px 20px;
-max-width:1000px;
+max-width:900px;
 margin:auto;
-}
-
-.card{
-background:#1a1a1a;
-padding:25px;
-margin:15px;
-border-radius:15px;
+line-height:1.5;
 }
 
 .btn{
 display:inline-block;
+margin-top:30px;
+padding:18px 35px;
 background:#25D366;
 color:white;
-padding:15px 30px;
-border-radius:10px;
 text-decoration:none;
+border-radius:12px;
 font-size:20px;
 font-weight:bold;
 }
 
-footer{
+.section{
+max-width:1200px;
+margin:auto;
+padding:70px 20px;
+}
+
+.title{
+text-align:center;
+font-size:42px;
+margin-bottom:50px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:#151515;
 padding:30px;
+border-radius:18px;
+}
+
+.card h3{
+margin-bottom:15px;
+color:#25D366;
+}
+
+.highlight{
 background:#111;
+padding:70px 20px;
+text-align:center;
+}
+
+.highlight h2{
+font-size:48px;
+margin-bottom:20px;
+color:#25D366;
+}
+
+.steps{
+max-width:900px;
+margin:auto;
+}
+
+.steps div{
+background:#151515;
+padding:20px;
+margin-bottom:15px;
+border-radius:15px;
+}
+
+footer{
+text-align:center;
+padding:50px 20px;
+background:#050505;
 }
 </style>
 </head>
 
 <body>
 
-<header>
+<section class="hero">
+
 <h1>TicketChat24</h1>
-<h2>La ticketera que vende entradas y atiende por WhatsApp 24 hs</h2>
-<br>
+
+<p>
+La ticketera que vende entradas y atiende a tus clientes por WhatsApp las 24 horas.
+</p>
+
 <a class="btn" href="https://wa.me/5493483514746">
-Contactar por WhatsApp
+Solicitar Información
 </a>
-</header>
 
-<section>
+</section>
+
+<section class="highlight">
+
+<h2>💰 Dinero directo al organizador</h2>
+
+<p>
+Cada venta se acredita directamente en la cuenta del organizador.
+Sin demoras, sin esperas y con liquidez inmediata para cubrir costos del evento.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2 class="title">¿Para quién es?</h2>
+
+<div class="grid">
+
 <div class="card">
-<h3>Venta Online</h3>
-<p>Vendé entradas para boliches, festivales, recitales y eventos privados.</p>
+<h3>🎵 Boliches</h3>
+<p>Venta anticipada y control QR.</p>
 </div>
 
 <div class="card">
-<h3>Atención Personalizada</h3>
-<p>Respondemos consultas y acompañamos a cada comprador.</p>
+<h3>🎤 Recitales</h3>
+<p>Entradas digitales y soporte al público.</p>
 </div>
 
 <div class="card">
-<h3>QR y Control de Ingreso</h3>
-<p>Entradas digitales con validación rápida y segura.</p>
+<h3>🎪 Festivales</h3>
+<p>Gestión completa de venta online.</p>
 </div>
 
 <div class="card">
-<h3>Dinero Directo al Organizador</h3>
-<p>Los fondos se acreditan directamente en la cuenta del organizador.</p>
+<h3>🏛 Municipios</h3>
+<p>Eventos públicos con control profesional.</p>
 </div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="title">¿Cómo funciona?</h2>
+
+<div class="steps">
+
+<div>1️⃣ Publicás tu evento.</div>
+
+<div>2️⃣ TicketChat24 vende las entradas.</div>
+
+<div>3️⃣ Atendemos consultas por WhatsApp.</div>
+
+<div>4️⃣ Entregamos entradas QR.</div>
+
+<div>5️⃣ Validás ingresos y cobrás directamente.</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="title">¿Por qué elegir TicketChat24?</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>📲 WhatsApp 24 hs</h3>
+<p>Atención humana para compradores.</p>
+</div>
+
+<div class="card">
+<h3>🎟 Entradas QR</h3>
+<p>Control rápido y seguro.</p>
+</div>
+
+<div class="card">
+<h3>📈 Más conversiones</h3>
+<p>Menos abandonos y más ventas.</p>
+</div>
+
+<div class="card">
+<h3>💵 Liquidez inmediata</h3>
+<p>El dinero llega directo al organizador.</p>
+</div>
+
+</div>
+
 </section>
 
 <footer>
-© 2026 TicketChat24
+
+<h2>TicketChat24</h2>
+
+<p>Venta de entradas + Atención personalizada + WhatsApp 24 hs</p>
+
+<br>
+
+<a class="btn" href="https://wa.me/5493483514746">
+Hablar por WhatsApp
+</a>
+
 </footer>
 
 </body>
