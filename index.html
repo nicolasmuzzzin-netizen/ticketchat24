@@ -145,20 +145,21 @@ box-shadow:0 0 100px rgba(217,70,239,.10)
 }
 .money h2{font-size:58px;color:#4ade80;letter-spacing:-2px}
 .money p{font-size:22px;line-height:1.75;color:#e2e8f0;margin-top:20px}
-.event-grid{display:grid;grid-template-columns:repeat(5,minmax(135px,1fr);gap:14px;margin-top:0}
+.event-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:0}
 .event-card{
-overflow:hidden;border-radius:22px;
+overflow:hidden;border-radius:24px;
 background:#05081b;
 border:1px solid rgba(255,255,255,.12);
-min-height:370px
+min-height:auto
 }
-  .event-art{
-height:240px;position:relative;
-background:
-radial-gradient(circle at 78% 12%,rgba(236,72,153,.58),transparent 28%),
-radial-gradient(circle at 18% 78%,rgba(124,58,237,.35),transparent 31%),
-linear-gradient(145deg,#1e1b4b,#86198f 45%,#020617 100%);
-padding:26px
+.event-art{
+aspect-ratio:1/1;
+height:auto;
+position:relative;
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+padding:16px  
 }
 .event-tag{
 display:inline-block;background:#050516;border:1px solid rgba(255,255,255,.16);
