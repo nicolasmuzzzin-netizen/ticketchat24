@@ -3,497 +3,629 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>TicketChat24</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Inter',sans-serif;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+html{scroll-behavior:smooth}
 body{
 background:
-radial-gradient(circle at top left,#7c3aed25,transparent 35%),
-radial-gradient(circle at top right,#d946ef20,transparent 30%),
-#05050a;
+radial-gradient(circle at 50% 0%,rgba(217,70,239,.22),transparent 28%),
+radial-gradient(circle at 0% 35%,rgba(14,165,233,.12),transparent 26%),
+radial-gradient(circle at 70% 45%,rgba(124,58,237,.18),transparent 32%),
+#030712;
 color:white;
 overflow-x:hidden;
 }
-
+a{text-decoration:none;color:inherit}
+.container{max-width:1320px;margin:auto;padding:0 24px}
 header{
-position:sticky;
-top:0;
-z-index:999;
+position:sticky;top:0;z-index:999;
+background:rgba(3,7,18,.78);
 backdrop-filter:blur(20px);
-background:rgba(5,5,10,.75);
-border-bottom:1px solid rgba(255,255,255,.08);
+border-bottom:1px solid rgba(255,255,255,.08)
 }
-
-.nav{
-max-width:1300px;
-margin:auto;
-padding:20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
+.nav{height:82px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:12px;font-weight:900;font-size:24px}
+.logo-icon{
+width:44px;height:44px;border-radius:16px;
+display:flex;align-items:center;justify-content:center;
+background:linear-gradient(135deg,#ec4899,#7c3aed);
+box-shadow:0 0 40px rgba(236,72,153,.35)
 }
-
-.logo{
-font-size:32px;
-font-weight:900;
-}
-
-.logo span{
-color:#d946ef;
-}
-
-.menu a{
-margin-left:30px;
-color:#cbd5e1;
-font-weight:700;
-text-decoration:none;
-}
-
-.hero{
-max-width:1300px;
-margin:auto;
-padding:120px 20px;
-display:grid;
-grid-template-columns:1.2fr .8fr;
-gap:50px;
-align-items:center;
-}
-
-.badge{
-display:inline-block;
-padding:12px 20px;
-border-radius:999px;
-background:rgba(217,70,239,.15);
-border:1px solid rgba(217,70,239,.35);
-color:#f0abfc;
-font-weight:800;
-}
-
-.hero h1{
-font-size:78px;
-line-height:.95;
-font-weight:900;
-margin-top:25px;
-}
-
-.hero p{
-margin-top:30px;
-font-size:22px;
-line-height:1.7;
-color:#cbd5e1;
-}
-
+.logo span{color:#f0abfc}
+.menu{display:flex;gap:28px;align-items:center}
+.menu a{color:#cbd5e1;font-weight:700;font-size:15px}
+.menu a:hover{color:white}
 .btn{
-display:inline-block;
-margin-top:35px;
-padding:18px 34px;
-border-radius:18px;
-font-weight:800;
-text-decoration:none;
-background:linear-gradient(90deg,#d946ef,#7c3aed);
-color:white;
-box-shadow:0 15px 40px rgba(217,70,239,.35);
+display:inline-flex;align-items:center;justify-content:center;gap:10px;
+padding:16px 26px;border-radius:18px;
+background:linear-gradient(90deg,#d946ef,#8b5cf6);
+color:white;font-weight:900;border:0;
+box-shadow:0 18px 45px rgba(217,70,239,.33);
+transition:.25s
 }
-
-.panel{
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.08);
-padding:35px;
-border-radius:30px;
-backdrop-filter:blur(20px);
+.btn:hover{transform:translateY(-2px);box-shadow:0 22px 60px rgba(217,70,239,.45)}
+.btn.secondary{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);box-shadow:none}
+.badge{
+display:inline-flex;align-items:center;gap:8px;
+padding:11px 18px;border-radius:999px;
+background:rgba(217,70,239,.13);
+border:1px solid rgba(217,70,239,.42);
+color:#f5d0fe;font-weight:900;font-size:14px;
+letter-spacing:.02em
 }
-
-.panel h2{
-font-size:40px;
-margin-bottom:15px;
-}
-
-.statbox{
-background:#07101d;
-padding:25px;
-border-radius:20px;
-text-align:center;
-margin-top:20px;
-}
-
-.statbox b{
-font-size:48px;
-}
-
-.section{
-max-width:1300px;
-margin:auto;
-padding:90px 20px;
-}
-
-.section-title{
-font-size:58px;
-font-weight:900;
-text-align:center;
-margin-bottom:20px;
-}
-
-.section-sub{
-text-align:center;
-font-size:20px;
-color:#94a3b8;
-max-width:900px;
-margin:auto;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:25px;
-margin-top:50px;
-}
-
-.card{
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.08);
-padding:30px;
-border-radius:28px;
-transition:.3s;
-}
-
-.card:hover{
-transform:translateY(-6px);
-border-color:#d946ef;
-}
-
-.card h3{
-font-size:28px;
-margin-bottom:15px;
-color:#f0abfc;
-}
-
-.card p{
-color:#cbd5e1;
-line-height:1.7;
-}
-
-.money{
-background:
-linear-gradient(135deg,
-rgba(217,70,239,.25),
-rgba(124,58,237,.15));
-padding:70px;
-border-radius:35px;
-border:1px solid rgba(217,70,239,.25);
-text-align:center;
-}
-
-.money h2{
-font-size:64px;
-color:#4ade80;
-margin-bottom:25px;
-}
-
-.money p{
-font-size:24px;
-color:#e2e8f0;
-line-height:1.8;
-}
-
-.steps{
-display:grid;
-gap:20px;
-margin-top:50px;
-}
-
-.step{
-display:flex;
-gap:20px;
-background:rgba(255,255,255,.05);
-padding:25px;
-border-radius:22px;
-border:1px solid rgba(255,255,255,.08);
-}
-
-.number{
-width:50px;
-height:50px;
-background:#d946ef;
-display:flex;
-align-items:center;
-justify-content:center;
-border-radius:14px;
-font-weight:900;
-}
-
-.cta{
-text-align:center;
-background:
-linear-gradient(135deg,
-rgba(217,70,239,.18),
-rgba(124,58,237,.08));
-padding:80px 40px;
-border-radius:35px;
-border:1px solid rgba(217,70,239,.25);
-}
-
-.cta h2{
-font-size:60px;
-margin-bottom:20px;
-}
-
-.whatsapp{
-position:fixed;
-right:20px;
-bottom:20px;
-background:#25D366;
-padding:18px 30px;
-border-radius:999px;
-font-weight:900;
-text-decoration:none;
-color:white;
-box-shadow:0 15px 40px rgba(37,211,102,.4);
-}
-
-footer{
-padding:60px 20px;
-text-align:center;
-color:#94a3b8;
-}
-
-@media(max-width:900px){
-
-.hero{
-grid-template-columns:1fr;
-}
-
+.hero{padding:105px 0 70px;display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center}
 .hero h1{
-font-size:52px;
+font-size:74px;line-height:.96;letter-spacing:-3px;
+margin-top:28px;font-weight:900
 }
-
-.section-title{
-font-size:42px;
+.hero p{font-size:21px;line-height:1.75;color:#cbd5e1;margin-top:28px;max-width:760px}
+.actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:34px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px;max-width:650px}
+.stat{
+padding:20px;border-radius:20px;
+background:rgba(2,6,23,.75);
+border:1px solid rgba(255,255,255,.10);
+text-align:center
 }
-
-.money h2{
-font-size:42px;
+.stat b{font-size:28px}
+.stat small{display:block;color:#94a3b8;margin-top:5px}
+.panel{
+border-radius:34px;padding:34px;
+background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(217,70,239,.08),rgba(2,6,23,.94));
+border:1px solid rgba(255,255,255,.13);
+box-shadow:0 30px 90px rgba(0,0,0,.45)
 }
-
-.cta h2{
-font-size:40px;
+.panel-top{display:flex;justify-content:space-between;gap:16px;align-items:flex-start}
+.panel h2{font-size:30px}
+.status{
+background:rgba(16,185,129,.12);color:#bbf7d0;
+padding:8px 12px;border-radius:999px;font-size:13px;font-weight:900
 }
-
-.menu{
-display:none;
+.panel-event{color:#cbd5e1;font-size:18px;margin-top:22px}
+.panel-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}
+.panel-box{
+background:#020617;border-radius:22px;padding:24px;text-align:center;
+border:1px solid rgba(255,255,255,.08)
 }
-
+.panel-box b{font-size:34px}
+.panel-list{margin-top:24px;color:#dbeafe;line-height:2;font-weight:700}
+section{padding:86px 0}
+.eyebrow{
+color:#f5d0fe;font-weight:900;letter-spacing:.35em;
+font-size:14px;text-transform:uppercase;margin-bottom:22px
 }
-
+h2.title{
+font-size:58px;line-height:1.05;letter-spacing:-2px;
+font-weight:900;max-width:1000px
+}
+.lead{font-size:21px;line-height:1.8;color:#cbd5e1;max-width:1050px;margin-top:26px}
+.grid{display:grid;gap:24px;margin-top:44px}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-4{grid-template-columns:repeat(4,1fr)}
+.card{
+border-radius:30px;padding:32px;
+background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.035));
+border:1px solid rgba(255,255,255,.12);
+box-shadow:0 22px 70px rgba(0,0,0,.28)
+}
+.card:hover{border-color:rgba(217,70,239,.48)}
+.icon{
+width:56px;height:56px;border-radius:18px;
+display:flex;align-items:center;justify-content:center;
+background:rgba(217,70,239,.22);
+color:#f0abfc;font-size:28px;margin-bottom:22px
+}
+.card h3{font-size:24px;margin-bottom:14px}
+.card p{color:#cbd5e1;font-size:18px;line-height:1.7}
+.big-card{
+border-radius:34px;padding:44px;
+background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(217,70,239,.10),rgba(2,6,23,.82));
+border:1px solid rgba(255,255,255,.13)
+}
+.audience{
+display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:42px
+}
+.audience-card{
+display:flex;align-items:center;gap:22px;
+padding:28px;border-radius:28px;
+background:rgba(2,6,23,.58);
+border:1px solid rgba(255,255,255,.13);
+font-size:24px;font-weight:900
+}
+.audience-card .icon{margin:0}
+.money{
+text-align:center;border-radius:36px;padding:64px;
+background:linear-gradient(135deg,rgba(217,70,239,.25),rgba(124,58,237,.15),rgba(2,6,23,.94));
+border:1px solid rgba(217,70,239,.34);
+box-shadow:0 0 100px rgba(217,70,239,.10)
+}
+.money h2{font-size:58px;color:#4ade80;letter-spacing:-2px}
+.money p{font-size:22px;line-height:1.75;color:#e2e8f0;margin-top:20px}
+.event-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:22px;margin-top:44px}
+.event-card{
+overflow:hidden;border-radius:30px;
+background:#05081b;
+border:1px solid rgba(255,255,255,.12);
+min-height:520px
+}
+.event-art{
+height:245px;position:relative;
+background:
+radial-gradient(circle at 78% 12%,rgba(236,72,153,.58),transparent 28%),
+radial-gradient(circle at 18% 78%,rgba(124,58,237,.35),transparent 31%),
+linear-gradient(145deg,#1e1b4b,#86198f 45%,#020617 100%);
+padding:26px
+}
+.event-tag{
+display:inline-block;background:#050516;border:1px solid rgba(255,255,255,.16);
+border-radius:999px;padding:9px 16px;font-size:12px;font-weight:900;letter-spacing:.08em
+}
+.event-art h4{font-size:26px;margin-top:76px}
+.event-body{padding:26px}
+.event-body small{color:#f5d0fe;font-weight:900;letter-spacing:.32em}
+.event-body h3{font-size:25px;margin-top:18px;line-height:1.18}
+.pill{
+display:inline-block;margin-top:14px;margin-right:8px;
+border-radius:999px;padding:8px 13px;
+background:rgba(217,70,239,.18);
+border:1px solid rgba(217,70,239,.42);
+font-weight:800;color:#f5d0fe
+}
+.pill.green{background:rgba(16,185,129,.14);border-color:rgba(16,185,129,.34);color:#bbf7d0}
+.event-body p{color:#cbd5e1;line-height:1.65;margin-top:18px;font-size:16px}
+.case-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;margin-top:44px}
+.case-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+.check{display:flex;gap:14px;align-items:flex-start;color:#cbd5e1;font-size:18px;line-height:1.6;margin:18px 0}
+.check b{color:#f0abfc}
+.whatsapp-float{
+position:fixed;right:24px;bottom:24px;z-index:999;
+background:#25D366;color:white;
+border-radius:999px;padding:16px 24px;
+font-weight:900;box-shadow:0 18px 60px rgba(37,211,102,.45)
+}
+@media(max-width:1050px){
+.hero,.case-grid{grid-template-columns:1fr}
+.event-grid{grid-template-columns:repeat(2,1fr)}
+.grid-3,.grid-4,.grid-2,.audience{grid-template-columns:1fr}
+.hero h1{font-size:48px}
+h2.title{font-size:40px}
+.money h2{font-size:38px}
+.menu{display:none}
+.stats,.panel-grid,.case-stats{grid-template-columns:1fr}
+}
 </style>
 </head>
 
 <body>
 
 <header>
-<div class="nav">
-<div class="logo">TicketChat <span>24</span></div>
-
-<div class="menu">
-<a href="#servicio">Servicio</a>
-<a href="#como">Cómo funciona</a>
-<a href="#beneficios">Beneficios</a>
-<a href="#contacto">Contacto</a>
-</div>
-</div>
+  <div class="container nav">
+    <a class="logo" href="#inicio">
+      <div class="logo-icon">💬</div>
+      <div>TicketChat <span>24</span></div>
+    </a>
+    <nav class="menu">
+      <a href="#servicio">Servicio</a>
+      <a href="#diferencial">Diferencial</a>
+      <a href="#eventos">Eventos</a>
+      <a href="#como">Cómo funciona</a>
+      <a href="#planes">Planes</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </div>
 </header>
 
-<section class="hero">
+<main>
 
-<div>
+<section id="inicio" class="container hero">
+  <div>
+    <div class="badge">✨ Servicio integral de venta de entradas + QR + WhatsApp 24 hs</div>
+    <h1>Vos organizás el evento. Nosotros te vendemos las entradas.</h1>
+    <p>
+      TicketChat 24 gestiona la venta digital de entradas con atención personalizada por WhatsApp,
+      confirmación de pagos, emisión de QR, seguimiento de interesados, reportes y control de ingreso.
+      El dinero puede acreditarse directamente en la cuenta del organizador o empresa.
+    </p>
+    <div class="actions">
+      <a class="btn" href="https://wa.me/5493483514746?text=Hola,%20quiero%20contratar%20TicketChat24%20para%20mi%20evento" target="_blank">Quiero contratar el servicio →</a>
+      <a class="btn secondary" href="https://wa.me/5493483514746?text=Hola,%20quiero%20ver%20como%20funciona%20TicketChat24" target="_blank">Consultar cómo funciona</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>24 hs</b><small>Atención comercial</small></div>
+      <div class="stat"><b>QR</b><small>Entrada digital</small></div>
+      <div class="stat"><b>Caja</b><small>Liquidez directa</small></div>
+    </div>
+  </div>
 
-<div class="badge">
-Venta de entradas + QR + WhatsApp 24 hs
-</div>
-
-<h1>
-Vos organizás el evento.
-Nosotros te vendemos las entradas.
-</h1>
-
-<p>
-La ticketera virtual con atención humana.
-Respondemos consultas, confirmamos pagos,
-emitimos QR y acompañamos cada venta.
-</p>
-
-<a class="btn"
-href="https://wa.me/5493483514746">
-Solicitar propuesta
-</a>
-
-</div>
-
-<div class="panel">
-
-<h2>Panel de ventas</h2>
-
-<p>Evento activo: Cumbia Night</p>
-
-<div class="statbox">
-<b>318</b><br>
-Entradas vendidas
-</div>
-
-<div class="statbox">
-<b>42</b><br>
-Consultas activas
-</div>
-
-<div style="margin-top:25px;line-height:2">
-✅ Pago confirmado<br>
-✅ QR enviado<br>
-✅ Atención online
-</div>
-
-</div>
-
+  <div class="panel">
+    <div class="panel-top">
+      <div>
+        <div class="eyebrow" style="margin-bottom:10px;letter-spacing:.18em">Panel de ventas</div>
+        <h2>TicketChat 24</h2>
+      </div>
+      <div class="status">Agente online</div>
+    </div>
+    <div class="panel-event">Evento activo: Cumbia Night</div>
+    <div class="panel-grid">
+      <div class="panel-box"><b>318</b><br>Entradas vendidas</div>
+      <div class="panel-box"><b>42</b><br>Consultas activas</div>
+    </div>
+    <div class="panel-list">
+      ✅ Pago confirmado<br>
+      ✅ QR enviado por WhatsApp<br>
+      ✅ Comprador acompañado<br>
+      ✅ Reporte listo
+    </div>
+  </div>
 </section>
 
-<section class="section">
-
-<div class="money">
-
-<h2>💰 Dinero directo al organizador</h2>
-
-<p>
-Los fondos ingresan directamente a la cuenta
-del organizador para generar liquidez inmediata
-y cubrir los costos del evento.
-</p>
-
-</div>
-
+<section class="container">
+  <div class="money">
+    <h2>💰 Dinero directo al organizador</h2>
+    <p>
+      La venta puede acreditarse directamente en la cuenta del organizador o empresa.
+      Esto permite tener liquidez inmediata para cubrir sonido, artistas, alquileres,
+      barras, seguridad y costos previos al evento.
+    </p>
+  </div>
 </section>
 
-<section class="section" id="servicio">
+<section id="servicio" class="container">
+  <div class="eyebrow">Para quién es</div>
+  <h2 class="title">Un servicio pensado para organizadores que quieren delegar la venta y controlar mejor.</h2>
+  <p class="lead">
+    TicketChat 24 está pensado para organizadores que quieren dejar la venta de entradas
+    en manos de un equipo que atiende, registra, confirma pagos, emite QR y entrega reportes claros,
+    manteniendo la recaudación directamente en la cuenta definida por el organizador.
+  </p>
 
-<h2 class="section-title">¿Para quién es?</h2>
-
-<p class="section-sub">
-Ideal para eventos que necesitan vender más,
-automatizar procesos y brindar una atención
-profesional al público.
-</p>
-
-<div class="grid">
-
-<div class="card">
-<h3>🎵 Boliches</h3>
-<p>Venta anticipada y control QR.</p>
-</div>
-
-<div class="card">
-<h3>🎤 Recitales</h3>
-<p>Entradas digitales y soporte al público.</p>
-</div>
-
-<div class="card">
-<h3>🎪 Festivales</h3>
-<p>Gestión completa de venta online.</p>
-</div>
-
-<div class="card">
-<h3>🏛 Municipios</h3>
-<p>Eventos públicos con control profesional.</p>
-</div>
-
-</div>
-
+  <div class="audience">
+    <div class="audience-card"><div class="icon">🎵</div>Boliches y fiestas</div>
+    <div class="audience-card"><div class="icon">🎉</div>Festivales y recitales</div>
+    <div class="audience-card"><div class="icon">🏢</div>Clubes y cenas show</div>
+    <div class="audience-card"><div class="icon">🏛️</div>Municipios y comunas</div>
+  </div>
 </section>
 
-<section class="section" id="como">
-
-<h2 class="section-title">Cómo funciona</h2>
-
-<div class="steps">
-
-<div class="step">
-<div class="number">1</div>
-<div>Configuramos el evento.</div>
-</div>
-
-<div class="step">
-<div class="number">2</div>
-<div>Atendemos consultas por WhatsApp.</div>
-</div>
-
-<div class="step">
-<div class="number">3</div>
-<div>Confirmamos pagos.</div>
-</div>
-
-<div class="step">
-<div class="number">4</div>
-<div>Emitimos QR automáticamente.</div>
-</div>
-
-<div class="step">
-<div class="number">5</div>
-<div>Controlamos el ingreso.</div>
-</div>
-
-</div>
-
+<section class="container">
+  <div class="big-card">
+    <div class="eyebrow">Qué hacemos por vos</div>
+    <h2 class="title">Del mensaje al ingreso, todo ordenado.</h2>
+    <div class="grid grid-2">
+      <div class="card"><div class="icon">📞</div><p>Respondemos consultas por WhatsApp y guiamos la compra.</p></div>
+      <div class="card"><div class="icon">💳</div><p>El dinero se acredita directo en la cuenta del organizador o empresa.</p></div>
+      <div class="card"><div class="icon">🔳</div><p>Emitimos entradas digitales con QR único y trazable.</p></div>
+      <div class="card"><div class="icon">📋</div><p>Entregamos reporte final y ayudamos a ordenar el ingreso.</p></div>
+    </div>
+  </div>
 </section>
 
-<section class="section" id="contacto">
+<section id="diferencial" class="container">
+  <div class="eyebrow">Diferencial</div>
+  <h2 class="title">No alquilamos una plataforma. Gestionamos la venta por vos.</h2>
+  <p class="lead">
+    La diferencia no es solo el QR. La diferencia es que un equipo se ocupa de responder,
+    recuperar indecisos, confirmar pagos y sostener la venta hasta el último día.
+  </p>
 
-<div class="cta">
-
-<h2>
-Delegá la venta.
-Enfocate en producir.
-</h2>
-
-<p style="font-size:22px;margin-top:20px">
-Nos ocupamos del proceso completo.
-</p>
-
-<a class="btn"
-href="https://wa.me/5493483514746">
-Hablar por WhatsApp
-</a>
-
-</div>
-
+  <div class="grid grid-3">
+    <div class="card"><div class="icon">💬</div><h3>WhatsApp 24 hs</h3><p>Atención personalizada para responder dudas, enviar datos de pago y cerrar ventas que una web fría pierde.</p></div>
+    <div class="card"><div class="icon">🎯</div><h3>Seguimiento comercial</h3><p>Volvemos a contactar a las personas que preguntaron y todavía no compraron. Ahí está la plata escondida.</p></div>
+    <div class="card"><div class="icon">🔳</div><h3>QR único</h3><p>Cada entrada se emite con código único, estado propio y control de uso en puerta.</p></div>
+    <div class="card"><div class="icon">🛡️</div><h3>Control antifraude</h3><p>Validación de entradas activas, usadas, anuladas o inválidas para reducir problemas en el ingreso.</p></div>
+    <div class="card"><div class="icon">📊</div><h3>Reportes claros</h3><p>Ventas por tanda, dinero recaudado, pagos pendientes, QR emitidos y resultado final.</p></div>
+    <div class="card"><div class="icon">🕒</div><h3>Liquidez inmediata</h3><p>La venta puede cobrarse directamente en la cuenta del organizador, ayudando a cubrir costos sin esperar liquidaciones.</p></div>
+  </div>
 </section>
 
-<footer>
+<section id="eventos" class="container">
+  <div class="eyebrow">Eventos atendidos</div>
+  <h2 class="title">Una cartera real de eventos, artistas y productoras.</h2>
+  <p class="lead">
+    La confianza no se declara: se demuestra. TicketChat 24 nace con experiencia en venta virtual,
+    atención personalizada, comprobantes, QR y soporte operativo para eventos reales.
+    Como regla comercial, proyectamos que aproximadamente el 30% del público compra su entrada de forma virtual.
+  </p>
 
-<h2>TicketChat24</h2>
+  <div class="case-grid">
+    <div class="big-card">
+      <div class="eyebrow">Caso destacado</div>
+      <h2 style="font-size:34px;margin-bottom:18px">Evento Eugenia Quevedo</h2>
+      <p class="lead" style="font-size:19px;margin-top:0">
+        Servicio de venta virtual con atención personalizada por WhatsApp,
+        confirmación de pagos, emisión de entradas digitales y gestión operativa de acceso.
+      </p>
+      <div class="case-stats">
+        <div class="stat"><b>3.000</b><small>personas aprox.</small></div>
+        <div class="stat"><b>800</b><small>entradas virtuales</small></div>
+        <div class="stat"><b>26,6%</b><small>compra virtual</small></div>
+      </div>
+    </div>
 
-<br>
+    <div class="big-card">
+      <div class="eyebrow">Respaldo comercial</div>
+      <h2 style="font-size:32px;margin-bottom:22px">Presencia en eventos de distintos formatos.</h2>
+      <div class="check"><b>✓</b><span>Shows nacionales y regionales.</span></div>
+      <div class="check"><b>✓</b><span>Eventos al aire libre, clubes, boliches y festivales con asistencias de 1.400 a más de 14.000 personas.</span></div>
+      <div class="check"><b>✓</b><span>Venta anticipada con tandas, sectores General/VIP y control de acceso.</span></div>
+      <div class="check"><b>✓</b><span>Experiencia real para defender paquetes chicos, medianos, grandes y cotizaciones especiales.</span></div>
+    </div>
+  </div>
 
-<p>
-Atendemos. Vendemos. Controlamos.
-</p>
+  <div class="event-grid">
+    <div class="event-card"><div class="event-art"><span class="event-tag">CASO DESTACADO</span><h4>TicketChat 24</h4><p>Evento atendido</p></div><div class="event-body"><small>EVENTO 01</small><h3>Eugenia Quevedo</h3><span class="pill">3.000 personas</span><span class="pill green">30% virtual: 900 entradas estimadas</span><p>Venta virtual destacada · 800 entradas digitales reales · referencia cercana al 30% de compra virtual.</p></div></div>
+    <div class="event-card"><div class="event-art"><span class="event-tag">EVENTO MASIVO</span><h4>TicketChat 24</h4><p>Evento atendido</p></div><div class="event-body"><small>EVENTO 02</small><h3>Q’Lokura</h3><span class="pill">3.500 personas</span><span class="pill green">30% virtual: 1.050 entradas estimadas</span><p>Show en vivo · venta anticipada · sectores General y VIP · 3.500 personas aprox.</p></div></div>
+    <div class="event-card"><div class="event-art"><span class="event-tag">ARTISTA NACIONAL</span><h4>TicketChat 24</h4><p>Evento atendido</p></div><div class="event-body"><small>EVENTO 03</small><h3>Karina</h3><span class="pill">4.500 personas</span><span class="pill green">30% virtual: 1.350 entradas estimadas</span><p>Summer Season · Sociedad Rural Vera · sectores General y VIP · 4.500 personas aprox.</p></div></div>
+    <div class="event-card"><div class="event-art"><span class="event-tag">SHOW MUSICAL</span><h4>TicketChat 24</h4><p>Evento atendido</p></div><div class="event-body"><small>EVENTO 04</small><h3>Nico Mattioli & Matías Valdez</h3><span class="pill">700 personas</span><span class="pill green">30% virtual: 210 entradas estimadas</span><p>Show en vivo · Candy Club · anticipadas limitadas · 700 personas aprox.</p></div></div>
+    <div class="event-card"><div class="event-art"><span class="event-tag">AIRE LIBRE</span><h4>TicketChat 24</h4><p>Evento atendido</p></div><div class="event-body"><small>EVENTO 05</small><h3>La T y La M</h3><span class="pill">1.500 personas</span><span class="pill green">30% virtual: 450 entradas estimadas</span><p>Aero Summer · experiencia al aire libre · sectores General y VIP · 1.500 personas aprox.</p></div></div>
+  </div> 
+  <div class="event-grid" style="margin-top:28px">
+    <div class="event-card"><div class="event-art"><span class="event-tag">ARTISTA NACIONAL</span><h4>TicketChat 24</h4><p>Evento atendido</p></div><div class="event-body"><small>EVENTO 06</small><h3>Dalila</h3><span class="pill">1.400 personas</span><span class="pill green">30% virtual: 420 entradas estimadas</span><p>Aero Summer · experiencia al aire libre · sectores General y VIP +21 · 1.400 personas aprox.</p></div></div>
+    <div class="event-card"><div class="event-art"><span class="event-tag">FESTIVAL</span><h4>TicketChat 24</h4><p>Evento atendido</p></div><div class="event-body"><small>EVENTO 07</small><h3>Matías Valdez desde Uruguay</h3><span class="pill">5.000 personas</span><span class="pill green">30% virtual: 1.500 entradas estimadas</span><p>Evento con artistas invitados: Los Bam Band, Kaniche y más · 5.000 personas aprox.</p></div></div>
+    <div class="event-card"><div class="event-art"><span class="event-tag">EVENTO REGIONAL</span><h4>TicketChat 24</h4><p>Evento atendido</p></div><div class="event-body"><small>EVENTO 08</small><h3>Fiesta Regional del Asado a la Estaca</h3><span class="pill">6.000 personas</span><span class="pill green">30% virtual: 1.800 entradas estimadas</span><p>Cacho Deicas, Matías Valdez · Club Defensores de la Costa · 6.000 personas aprox.</p></div></div>
+    <div class="event-card"><div class="event-art"><span class="event-tag">RECITAL NIGHT</span><h4>TicketChat 24</h4><p>Evento atendido</p></div><div class="event-body"><small>EVENTO 09</small><h3>Néstor En Bloque</h3><span class="pill">1.500 personas</span><span class="pill green">30% virtual: 450 entradas estimadas</span><p>Candy Club · Recital Night · anticipadas limitadas · 1.500 personas aprox.</p></div></div>
+    <div class="event-card"><div class="event-art"><span class="event-tag">INSTITUCIONAL</span><h4>TicketChat 24</h4><p>Evento atendido</p></div><div class="event-body"><small>EVENTO 10</small><h3>Expo Rural Vera</h3><span class="pill">14.300 personas</span><span class="pill green">30% virtual: 4.290 entradas estimadas</span><p>75° aniversario · Karina, La Previa, Los Chaque Che y más · 14.300 personas aprox.</p></div></div>
+  </div>
+</section>
 
+<section id="como" class="container">
+  <div class="case-grid">
+    <div>
+      <div class="eyebrow">Cómo funciona</div>
+      <h2 class="title">Un proceso simple para vender sin perder el control.</h2>
+      <p class="lead">
+        El organizador nos pasa los datos del evento, nosotros armamos el circuito de venta,
+        atendemos compradores, emitimos entradas QR y ordenamos el ingreso.
+      </p>
+      <a class="btn" href="https://wa.me/5493483514746?text=Hola,%20quiero%20empezar%20con%20TicketChat24" target="_blank">Empezar ahora</a>
+    </div>
+
+    <div class="big-card">
+      <div class="check"><b>1</b><span><strong>Armamos la venta</strong><br>Cargamos imagen, fecha, lugar, tandas, precios, cupos y canal oficial de WhatsApp.</span></div>
+      <div class="check"><b>2</b><span><strong>Atendemos al público</strong><br>La gente llega desde redes, toca comprar y habla con un agente real de atención y venta.</span></div>
+      <div class="check"><b>3</b><span><strong>Gestionamos pago y datos</strong><br>Informamos precios, enviamos los datos de cobro del organizador, recibimos comprobantes y registramos cada comprador.</span></div>
+      <div class="check"><b>4</b><span><strong>Enviamos la entrada</strong><br>Con pago confirmado, generamos la entrada digital con QR y la enviamos por WhatsApp.</span></div>
+      <div class="check"><b>5</b><span><strong>Entregamos control y reportes</strong><br>El día del evento se escanea el QR, se controla el ingreso y se entrega el informe final de ventas.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="grid grid-4">
+    <div class="card"><div class="icon">📱</div><h3>Página pública</h3><p>Evento visible desde celular con CTA directo a WhatsApp.</p></div>
+    <div class="card"><div class="icon">🎧</div><h3>Panel agente</h3><p>Seguimiento de interesados, compradores y pagos pendientes.</p></div>
+    <div class="card"><div class="icon">📷</div><h3>Ingreso rápido</h3><p>Escaneo de QR desde celular para personal de puerta.</p></div>
+    <div class="card"><div class="icon">📄</div><h3>Exportaciones</h3><p>Ventas y reportes listos para Excel o CSV.</p></div>
+  </div>
+</section>
+
+<section id="calculadora" class="container">
+  <div class="eyebrow">Fee fijo, no sociedad del evento</div>
+  <h2 class="title">El trabajo se cobra por gestión, no por suerte de taquilla.</h2>
+  <p class="lead">
+    La comisión pura te convierte en socio del riesgo: si el evento vende poco, el trabajo ya se hizo igual.
+    Por eso el modelo recomendado es fee fijo por servicio. Comparalo contra una comisión tradicional del 15%.
+  </p>
+
+  <div class="big-card" style="margin-top:42px">
+    <div class="eyebrow">Simulador de fee fijo</div>
+    <h2 style="font-size:32px;margin-bottom:30px">Compará contra una comisión tradicional</h2>
+
+    <div class="case-grid">
+      <div>
+        <div class="card" style="background:rgba(217,70,239,.13)">
+          Regla comercial sugerida: público estimado × 30% = entradas virtuales proyectadas.
+          Es una base útil para presupuestar antes de lanzar la venta.
+        </div>
+
+        <label>Público total estimado</label>
+        <input id="attendance" type="number" value="3000">
+        <label>Porcentaje estimado de compra virtual</label>
+        <input id="rate" type="number" value="30">
+        <label>Precio promedio por entrada</label>
+        <input id="price" type="number" value="15000">
+        <label>Fee fijo del servicio</label>
+        <input id="fee" type="number" value="1500000">
+      </div>
+
+      <div>
+        <div class="stat" style="text-align:left;margin-bottom:14px"><small>Entradas virtuales proyectadas</small><br><b id="tickets">900 entradas</b></div>
+        <div class="stat" style="text-align:left;margin-bottom:14px"><small>Recaudación virtual estimada</small><br><b id="gross">$ 13.500.000</b></div>
+
+        <div class="grid grid-2" style="margin-top:0">
+          <div class="stat" style="text-align:left"><small>Otras empresas comisión 15%</small><br><b id="traditional">$ 2.025.000</b></div>
+          <div class="stat" style="text-align:left;border-color:rgba(217,70,239,.45)"><small>Nosotros fee fijo</small><br><b id="fixedFee">$ 1.500.000</b></div>
+        </div>
+
+        <div class="grid grid-2" style="margin-top:14px">
+          <div class="stat" style="text-align:left"><small>Costo por entrada virtual</small><br><b id="perTicket">$ 1.667</b></div>
+          <div class="stat" style="text-align:left"><small>Equivalente sobre venta</small><br><b id="effective">11.1%</b></div>
+        </div>
+
+        <div class="card" style="margin-top:14px;background:rgba(16,185,129,.12);border-color:rgba(16,185,129,.30)">
+          <h3 style="color:#bbf7d0">Ahorro estimado contra comisión 15%</h3>
+          <p>Con fee fijo, el organizador podría ahorrar <strong id="saving">$ 525.000</strong> y además recibir atención personalizada, QR, seguimiento y reportes.</p>
+          <p style="font-size:14px;margin-top:12px;color:#a7f3d0">La comparación es estimativa. El fee fijo se cobra por gestionar la venta, no por asumir el riesgo total de taquilla.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="planes" class="container">
+  <div class="eyebrow">Formas de contratar el servicio</div>
+  <h2 class="title">Fee fijo según escala del evento.</h2>
+
+  <div class="grid grid-4">
+    <div class="card">
+      <h3>Evento chico</h3>
+      <p><strong>Hasta 400 personas</strong></p>
+      <h2 style="font-size:38px;margin:18px 0">$250.000</h2>
+      <p>Ideal para fiestas privadas, cenas show, clubes o eventos de baja complejidad. Proyecta hasta 120 entradas digitales.</p>
+      <div class="check"><b>✓</b><span>Gestión de WhatsApp</span></div>
+      <div class="check"><b>✓</b><span>Emisión de QR</span></div>
+      <div class="check"><b>✓</b><span>Reporte final</span></div>
+    </div>
+
+    <div class="card" style="border-color:rgba(217,70,239,.7);background:rgba(217,70,239,.13)">
+      <div class="badge">RECOMENDADO</div>
+      <h3 style="margin-top:18px">Evento mediano</h3>
+      <p><strong>Hasta 1.000 personas</strong></p>
+      <h2 style="font-size:38px;margin:18px 0">$600.000</h2>
+      <p>Pensado para boliches, clubes, bailes, cenas show grandes y eventos regionales. Proyecta hasta 300 entradas digitales.</p>
+      <div class="check"><b>✓</b><span>Atención personalizada</span></div>
+      <div class="check"><b>✓</b><span>Seguimiento de interesados</span></div>
+      <div class="check"><b>✓</b><span>QR + control de ingreso</span></div>
+    </div>
+
+    <div class="card">
+      <h3>Evento grande</h3>
+      <p><strong>Hasta 3.000 personas</strong></p>
+      <h2 style="font-size:38px;margin:18px 0">$1.500.000</h2>
+      <p>Para festivales, artistas convocantes, eventos masivos regionales y campañas de venta prolongadas.</p>
+      <div class="check"><b>✓</b><span>Mayor cobertura de atención</span></div>
+      <div class="check"><b>✓</b><span>Control operativo reforzado</span></div>
+      <div class="check"><b>✓</b><span>Informe final completo</span></div>
+    </div>
+
+    <div class="card">
+      <h3>Evento mayor</h3>
+      <p><strong>Más de 3.000 personas</strong></p>
+      <h2 style="font-size:36px;margin:18px 0">Solicitar cotización</h2>
+      <p>Para eventos masivos que requieren análisis particular por volumen de consultas, días de venta y soporte operativo.</p>
+      <div class="check"><b>✓</b><span>Cotización personalizada</span></div>
+      <div class="check"><b>✓</b><span>Plan de atención a medida</span></div>
+      <div class="check"><b>✓</b><span>Soporte operativo reforzado</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="big-card case-grid">
+    <div>
+      <div class="eyebrow">Comparativa</div>
+      <h2 style="font-size:40px">Ticketera tradicional vs TicketChat 24</h2>
+      <p class="lead">No competimos solo por tecnología. Competimos por gestión comercial, atención, seguimiento y cierre.</p>
+    </div>
+
+    <div class="card" style="overflow:hidden;padding:0">
+      <table>
+        <thead>
+          <tr><th>Característica</th><th>Tradicional</th><th>TicketChat 24</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Link de venta</td><td>Sí</td><td><strong>Sí</strong></td></tr>
+          <tr><td>QR digital</td><td>Sí</td><td><strong>Sí</strong></td></tr>
+          <tr><td>WhatsApp 24 hs</td><td>Limitado</td><td><strong>Sí</strong></td></tr>
+          <tr><td>Seguimiento de interesados</td><td>No</td><td><strong>Sí</strong></td></tr>
+          <tr><td>Cierre personalizado</td><td>No</td><td><strong>Sí</strong></td></tr>
+          <tr><td>Liquidez</td><td>Según plataforma</td><td><strong>Directa al organizador</strong></td></tr>
+          <tr><td>Capacitación ingreso</td><td>No siempre</td><td><strong>Incluida</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="container">
+  <div class="eyebrow">Preguntas frecuentes</div>
+  <h2 class="title">Listo para salir a vender, sin vender humo.</h2>
+
+  <div class="grid grid-2">
+    <div class="card"><h3>¿Ustedes solo dan una plataforma?</h3><p>No. La propuesta principal es el servicio de venta de entradas: atención por WhatsApp, gestión de pagos, emisión de QR, seguimiento y reportes.</p></div>
+    <div class="card"><h3>¿Cobran por comisión?</h3><p>El modelo recomendado no es comisión pura. Trabajamos con fee fijo según escala del evento, porque el trabajo operativo se realiza aunque el evento venda más o menos entradas.</p></div>
+    <div class="card"><h3>¿El QR se puede usar dos veces?</h3><p>No. Cuando se confirma el ingreso, la entrada queda usada y el sistema alerta si alguien intenta reutilizarla.</p></div>
+    <div class="card"><h3>¿Quién atiende el WhatsApp?</h3><p>La atención puede estar a cargo del equipo de TicketChat 24 o de un agente designado, siempre con plantillas, estados de venta y proceso de seguimiento.</p></div>
+    <div class="card"><h3>¿Sirve para eventos chicos?</h3><p>Sí. El paquete chico cubre eventos de hasta 400 personas por $250.000, porque aunque el volumen sea menor, igual hay configuración, atención, QR y reporte final.</p></div>
+    <div class="card"><h3>¿Cuántas entradas se suelen vender de forma virtual?</h3><p>Como regla comercial inicial, estimamos que aproximadamente el 30% del público asistente puede comprar de forma virtual.</p></div>
+    <div class="card"><h3>¿Dónde se acredita el dinero de las entradas?</h3><p>La modalidad recomendada es que el dinero se acredite directamente en la cuenta del organizador o empresa, para generar liquidez inmediata y ayudar a cubrir costos del evento.</p></div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="money" style="text-align:left;display:grid;grid-template-columns:1.3fr .7fr;gap:28px;align-items:center">
+    <div>
+      <h2 style="color:white">Delegá la venta de entradas y enfocáte en producir tu evento.</h2>
+      <p>Mandanos los datos de tu evento y armamos una propuesta para gestionar la venta completa: WhatsApp, pagos directos a tu cuenta, QR, reportes y control de ingreso.</p>
+    </div>
+    <div style="text-align:center">
+      <a class="btn" href="https://wa.me/5493483514746?text=Hola,%20quiero%20una%20propuesta%20de%20TicketChat24%20para%20mi%20evento" target="_blank">Solicitar propuesta de servicio 💬</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="container" style="padding:50px 24px;color:#94a3b8;border-top:1px solid rgba(255,255,255,.08)">
+  <strong>TicketChat 24</strong> · Atendemos. Vendemos. Controlamos.
 </footer>
 
-<a class="whatsapp"
-href="https://wa.me/5493483514746">
-WhatsApp
-</a>
+<a class="whatsapp-float" href="https://wa.me/5493483514746" target="_blank">WhatsApp</a>
+
+<style>
+label{display:block;margin-top:20px;margin-bottom:8px;color:#cbd5e1;font-weight:800}
+input{
+width:100%;padding:18px 20px;border-radius:18px;
+background:#020617;color:white;border:1px solid rgba(255,255,255,.12);
+font-size:18px;outline:none
+}
+input:focus{border-color:#d946ef}
+table{width:100%;border-collapse:collapse}
+th,td{padding:18px;text-align:left;border-bottom:1px solid rgba(255,255,255,.10)}
+th{background:rgba(255,255,255,.10);font-size:16px}
+td{color:#cbd5e1}
+td:first-child{font-weight:900;color:white}
+@media(max-width:1050px){
+.money[style]{display:block!important}
+table{font-size:13px}
+th,td{padding:12px}
+}
+</style>
+
+<script>
+function formatMoney(value){
+  return new Intl.NumberFormat("es-AR",{
+    style:"currency",
+    currency:"ARS",
+    maximumFractionDigits:0
+  }).format(value || 0);
+}
+
+function calculate(){
+  const attendance = Number(document.getElementById("attendance").value) || 0;
+  const rate = Number(document.getElementById("rate").value) || 0;
+  const price = Number(document.getElementById("price").value) || 0;
+  const fee = Number(document.getElementById("fee").value) || 0;
+
+  const tickets = Math.round(attendance * rate / 100);
+  const gross = tickets * price;
+  const traditional = gross * 0.15;
+  const perTicket = tickets ? fee / tickets : 0;
+  const effective = gross ? (fee / gross) * 100 : 0;
+  const saving = traditional - fee;
+
+  document.getElementById("tickets").innerText = tickets + " entradas";
+  document.getElementById("gross").innerText = formatMoney(gross);
+  document.getElementById("traditional").innerText = formatMoney(traditional);
+  document.getElementById("fixedFee").innerText = formatMoney(fee);
+  document.getElementById("perTicket").innerText = formatMoney(perTicket);
+  document.getElementById("effective").innerText = effective.toFixed(1) + "%";
+  document.getElementById("saving").innerText = formatMoney(saving);
+}
+
+["attendance","rate","price","fee"].forEach(id=>{
+  document.addEventListener("input", function(e){
+    if(e.target && e.target.id === id) calculate();
+  });
+});
+
+calculate();
+</script>
 
 </body>
 </html>
+  
